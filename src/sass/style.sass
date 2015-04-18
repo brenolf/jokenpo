@@ -1,0 +1,72 @@
+=square-size ($w)
+  width: $w
+  height: $w
+
+=stretch
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  margin: auto
+
+$bg: #D7A940
+
+html, body
+  padding: 0
+  margin: 0
+  width: 100%
+
+body
+  background: $bg
+
+h1, h2
+  font-family: 'Roboto Slab', sans-serif
+  font-weight: 700
+  font-size: 6em
+  text-align: center
+  color: white
+
+h2
+  font-size: 2em
+  color: darken($bg, 25%)
+
+  span
+    width: 3em
+    display: inline-block
+
+div
+  margin: 4em 0
+  text-align: center
+  width: 49%
+  display: inline-block
+
+a
+  display: inline-block
+  +square-size (5em)
+  padding: 2em
+  background: #D74B41
+  text-align: center
+  border-radius: 100%
+  cursor: pointer
+  position: relative
+  transition: all 0.2s linear
+  opacity: 0.7
+
+  img
+    +stretch
+    transition: all 0.2s linear
+    width: inherit
+    height: inherit
+
+    .choosing
+      +square-size (4em)
+
+  .you &
+    background: #5C7ED7
+    opacity: 1
+
+    &:hover
+      img
+        +square-size (4em)
+
