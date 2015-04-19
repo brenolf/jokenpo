@@ -5,7 +5,6 @@ import * as utils from './utils.js';
 // Create symbols
 let key = {
   ai:       Symbol('ai'),
-  buttons:  Symbol('buttons'),
   gui:      Symbol('gui')
 };
 
