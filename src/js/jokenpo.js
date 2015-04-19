@@ -2,12 +2,10 @@ import AI from './ai.js';
 import GUI from './gui.js';
 import * as utils from './utils.js';
 
-// Create symbols
-let key = {
-  ai:       Symbol('ai'),
-  buttons:  Symbol('buttons'),
-  gui:      Symbol('gui')
-};
+/*
+* TO-DO
+* - Create symbols for private instances
+*/
 
 // Gets a NodeList of all clickable buttons
 let buttons = document.querySelectorAll('.you a');
@@ -21,39 +19,32 @@ export default class Jokenpo {
     // Last round movement
     this.last_movement = utils.ROCK;
 
-    // New instance of AI class
-    this[key.ai] = new AI();
-
-    // New instance of GUI to take care of animations
-    this[key.gui] = new GUI();
-
-    // Transforms `buttons` to an array, using Array helper
-    buttons = Array.from(buttons);
-
-    // Iterates over `buttons` to add onclick listener
-    buttons.forEach(button =>
-      button.onclick = this.trigger.bind(this, button)
-    );
+    /*
+    * TO-DO
+    * - Create private instances of AI and GUI
+    * - Makes each button in `buttons` to listen to
+    *   click events, triggering the `trigger` method.
+    *
+    * TIP: It is easier if the context of `trigger` is
+    * class Jokenpo instead of the button itself. You can
+    * still pass the button as a parameter to `trigger`.
+    */
   }
 
-  trigger (button) {
-    // Renaming 'cause I'm lazy
-    let ai = this[key.ai];
-    let gui = this[key.gui];
+  /*
+  * TO-DO
+  * - This function should use gui.read(button) to get user's choice;
+  * - Then it should compute the foe's move, by calling AI's next method,
+  *   which takes (this.last_round, this.last_movement) as parameters;
+  * - Then it should call gui.toggle(button) for the current button and gui.foe
+  *   passing in the move the player will take this turn and the move the is going
+  *   to take this turn.
+  * - Finally, you should update last_round and last_movement. For last_round,
+  *   you can use util's player_scored function. Passing in the move the player
+  *    will take this turn and the move the is going to take this turn.
+  */
 
-    // Gets player's choice
-    let players_move = gui.read(button);
-
-    // Gets the foe's move, passing the last result and player's move
-    let foes_move = ai.next(this.last_round, this.last_movement);
-
-    // Do GUI stuff
-    gui.toggle(button);
-    gui.foe(players_move, foes_move);
-
-    // Update `last`s variables
-    this.last_round = utils.player_scored(players_move, foes_move);
-    this.last_movement = players_move;
+  trigger () {
   }
 
 }
