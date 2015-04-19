@@ -11,6 +11,9 @@
   margin: auto
 
 $bg: #D7A940
+$red: #D74B41
+$blue: #5C7ED7
+
 
 html, body
   padding: 0
@@ -43,30 +46,38 @@ div
 
 a
   display: inline-block
-  +square-size (5em)
+  +square-size (9em)
   padding: 2em
-  background: #D74B41
+  background: $red
   text-align: center
   border-radius: 100%
-  cursor: pointer
   position: relative
   transition: all 0.2s linear
   opacity: 0.7
+  box-sizing: border-box
+  margin: 0.2em
+  border-color: white
+
+  &.choosing, &.active
+    border: solid 0.5em white
+
+    img
+      +square-size (5.5em)
+
+  &.choosing
+    border: none
 
   img
     +stretch
+    +square-size (4em)
     transition: all 0.2s linear
-    width: inherit
-    height: inherit
-
-    .choosing
-      +square-size (4em)
 
   .you &
-    background: #5C7ED7
+    background: $blue
     opacity: 1
+    cursor: pointer
 
     &:hover
       img
-        +square-size (4em)
+        +square-size (5.5em)
 
