@@ -41,7 +41,7 @@ export default class Jokenpo {
   *   to take this turn.
   * - Finally, you should update last_round and last_movement. For last_round,
   *   you can use util's player_scored function. Passing in the move the player
-  *    will take this turn and the move the is going to take this turn.
+  *    will take this turn and the move the foe is going to take this turn.
   */
 
   trigger () {
