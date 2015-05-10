@@ -4,7 +4,7 @@ import * as utils from './utils.js';
 
 /*
 * TO-DO
-* - Create symbols for private instances
+* - Create symbols for private instances for ai and gui
 */
 
 // Gets a NodeList of all clickable buttons
